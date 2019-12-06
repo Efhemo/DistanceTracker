@@ -119,6 +119,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 trackedLocation.longitude = lastLocation.longitude
                 viewModel.saveLocation(trackedLocation)
 
+                map.moveCamera(CameraUpdateFactory.newLatLng(LatLng(lastLocation.latitude, lastLocation.longitude)))
+
                 //Calculate covered DIstance
                 val distance: Float = oldLocation.distanceTo(lastLocation)
                 distanceCovered = distanceCovered.plus(distance)
